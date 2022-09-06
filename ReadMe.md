@@ -3,16 +3,22 @@
 1、给定问句，生成查询图候选，首先基于Luo方法中的生成方法(代码模块Generate_QueryGraph/Luo)
 
 ### ComplexQuestions
-
-执行bash step1_gen_query_graph_compq_luo.sh可得到CompQ数据集对应的候选查询图
+可得到CompQ数据集对应的候选查询图
+```
+cd Generate_QueryGraph/Luo
+bash step1_gen_query_graph_compq_luo.sh
+```
 
 评价得到的候选查询图的平均召回率，即每个问句对应最高f1值的平均(Generate_QueryGraph/Luo/max_f1.py)：
 训练集和验证集（0.6333），测试集（0.6304）,整个数据集平均（0.6322）;
 整个数据集上每个问句对应的平均候选个数为208(Generate_QueryGraph/Luo/build_listwise_data.py)
 
 ### WebQuestions
-
-执行bash step1_gen_query_graph_webq_luo.sh可得到WebQ数据集对应的候选查询图
+得到WebQ数据集对应的候选查询图
+```
+cd Generate_QueryGraph/Luo
+bash step1_gen_query_graph_webq_luo.sh
+```
 
 评价得到的候选查询图的平均召回率，即每个问句对应最高f1值的平均(Generate_QueryGraph/Luo/max_f1.py)：
 训练集和验证集（0.7852），测试集（0.7772）,整个数据集平均（0.7824）;
