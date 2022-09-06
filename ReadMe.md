@@ -1,3 +1,9 @@
+# Two-stage Query Graph Selection for Knowledge Base Question Answering
+
+代码 文档还在整理中, 目前上传的还是中间版本。后续会新增EN-readme
+
+更多细节可参考
+
 ## 生成查询图模块
 
 1、给定问句，生成查询图候选，首先基于Luo方法中的生成方法(代码模块Generate_QueryGraph/Luo)
@@ -24,6 +30,7 @@ bash step1_gen_query_graph_webq_luo.sh
 训练集和验证集（0.7852），测试集（0.7772）,整个数据集平均（0.7824）;
 整个数据集上每个问句对应的平均候选个数为170(Generate_QueryGraph/Luo/WebQ/build_listwise_data.py)
 
+### ping
 
 2、重写的多模式搜索的查询图生成方法（Generate_QueryGraph/Question2Cands）
 
@@ -51,8 +58,6 @@ python build_listwise_data.py
 ```
 执行后会在runnings/train_data/webq文件夹下生成不同正负例的训练集文件，以及统一的验证和测试文件。这些文件会被三种排序优化方法共同使用。
 
-
-
 单点排序训练数据：read_query_graph.py
 
 805条    300条    799条
@@ -64,6 +69,3 @@ cd Model/prerank/pairwise/webq
 python predict_dev_data_webq.py     根据训练好的排序模型计算验证集候选的得分
 python predict_train_data_webq.py   根据训练好的排序模型计算训练集候选的得分
 ```
-
-
-
