@@ -6,66 +6,92 @@
 
 中文数据集上的实验参考ckbqa/README.md 展开(待上传)
 
-## 生成查询图模块
+## setups[todo]
 
-1、给定问句，生成查询图候选，首先基于Luo方法中的生成方法(代码模块Generate_QueryGraph/Luo)
+代码在下述环境中测试
 
-### ComplexQuestions
-可得到CompQ数据集对应的候选查询图
-```
-cd Generate_QueryGraph/Luo
-bash step1_gen_query_graph_compq_luo.sh
-```
+## 💾数据获取
 
-评价得到的候选查询图的平均召回率，即每个问句对应最高f1值的平均(Generate_QueryGraph/Luo/max_f1.py)：
-训练集和验证集（0.6333），测试集（0.6304）,整个数据集平均（0.6322）;
-整个数据集上每个问句对应的平均候选个数为208(Generate_QueryGraph/Luo/build_listwise_data.py)
+- [CCKS2019-KBQA](https://www.biendata.xyz/competition/ccks_2019_6/) 源自CCKS2019评测任务: 中文知识图谱问答
 
-### WebQuestions
-得到WebQ数据集对应的候选查询图
-```
+- [CCKS2021-KBQA](https://www.biendata.xyz/competition/ccks_2021_ckbqa/) 源自CCKS2021评测任务: 生活服务知识图谱问答评测
+
+- [WebQuestions](https://nlp.stanford.edu/software/sempre/) 源自论文[Semantic Parsing on Freebase from Question-Answer Pairs](https://aclanthology.org/D13-1160/)
+
+- [ComplexQuestions](https://github.com/JunweiBao/MulCQA/tree/ComplexQuestions) 源自论文[Constraint-Based Question Answering with Knowledge Graph](https://aclanthology.org/C16-1236.pdf)
+
+## 🚀快速复现实验结果
+
+## 1️⃣查询图生成
+
+此步骤非必要, 我们提供各数据集的生成结果，供排序使用
+
+- 生成WebQ数据集对应的候选查询图
+
+```bash
 cd Generate_QueryGraph/Luo
 bash step1_gen_query_graph_webq_luo.sh
+# 评价得到的候选查询图的平均召回率，即每个问句对应最高f1值的平均(Generate_QueryGraph/Luo/max_f1.py)：
+# 训练集和验证集（0.7852），测试集（0.7772）,整个数据集平均（0.7824）;
+# 整个数据集上每个问句对应的平均候选个数为170(Generate_QueryGraph/Luo/WebQ/build_listwise_data.py)
 ```
 
-评价得到的候选查询图的平均召回率，即每个问句对应最高f1值的平均(Generate_QueryGraph/Luo/max_f1.py)：
-训练集和验证集（0.7852），测试集（0.7772）,整个数据集平均（0.7824）;
-整个数据集上每个问句对应的平均候选个数为170(Generate_QueryGraph/Luo/WebQ/build_listwise_data.py)
+- 生成CompQ数据集对应的候选查询图
 
-### ping
-
-2、重写的多模式搜索的查询图生成方法（Generate_QueryGraph/Question2Cands）
-
-### ComplexQuestions
-
-暴力搜索得到所有相关的一跳或两跳路径
-
-对暴力搜索得到的路径进行子图重建（Generate_QueryGraph/Question2Cands/backward_search/step2_select_path.sh）
-
-
-### WebQuestions
-
-暴力搜索得到所有相关的一跳或两跳路径(yhjia@192.168.126.124:/data/yhjia/Question2Cands/backward_search/step1_webq_query_graph_with_linkings_and_answer.sh)
-
-
-## 查询图选择模块
-
-### 从生成的查询图候选到训练测试数据的构建(Build_Data)
-
-#### WebQ
-
+```bash
+cd Generate_QueryGraph/Luo
+bash step1_gen_query_graph_compq_luo.sh
+# 评价得到的候选查询图的平均召回率，即每个问句对应最高f1值的平均(Generate_QueryGraph/Luo/max_f1.py)：
+# 训练集和验证集（0.6333），测试集（0.6304）,整个数据集平均（0.6322）;
+# 整个数据集上每个问句对应的平均候选个数为208(Generate_QueryGraph/Luo/build_listwise_data.py)
 ```
+
+中文数据集上的结果[todo 后续完善]
+
+## 2️⃣构建stage1 排序的输入数据
+
+- WebQ
+
+```bash
 cd Build_Data/WebQ
-python build_listwise_data.py
+python build_listwise_data_with_answer.py
+# 执行后会在runnings/train_data/webq文件夹下生成不同正负例的训练集文件，以及统一的验证和测试文件。这些文件会被三种排序优化方法共同使用。
 ```
-执行后会在runnings/train_data/webq文件夹下生成不同正负例的训练集文件，以及统一的验证和测试文件。这些文件会被三种排序优化方法共同使用。
 
-单点排序训练数据：read_query_graph.py
+- CompQ
 
-805条    300条    799条
+```bash
+cd Build_Data/CompQ/
+python build_rerank_data.py
+```
 
+## 3️⃣构建stage2 排序的输入数据
 
-### 重排序
+- WebQ
+
+```bash
+cd WebQ
+# 获得 初排得分
+python get_sorted_cand_from_prerank_score.py
+# 选取初排得分Topn(用于dev和test)
+python selet_topn_from_sorted.py
+# 选取n个负例(用于train)
+python select_1_n.py
+```
+
+- CompQ
+
+```bash
+cd CompQ
+# 获得 初排得分
+python get_sorted_cand_from_prerank.py
+# 选取初排得分Topn(用于dev和test)
+python selet_topn_from_sorted.py
+# 选取n个负例(用于train)
+python select_1_n.py
+```
+
+### 重排序[todo]
 ```
 cd Model/prerank/pairwise/webq
 python predict_dev_data_webq.py     根据训练好的排序模型计算验证集候选的得分

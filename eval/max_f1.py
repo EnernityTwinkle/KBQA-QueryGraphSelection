@@ -2,6 +2,7 @@ import os
 import json
 import csv
 import sys
+import yaml
 
 
 # 读取每个问句对应的实体链接表信息
@@ -40,9 +41,8 @@ def read_qid2entity(init_dir_name):
                             # import pdb; pdb.set_trace()
     return qid2entity
 
-def WebQ():
+def WebQ(init_dir_name = '../runnings/candgen_WebQ/20201202_entity_time_type_ordinal/data/'):
     result = {}
-    init_dir_name = '../../runnings/candgen_WebQ/20201202_entity_time_type_ordinal/data/'
     # init_dir_name = '/home/jiayonghui/github/bert_rank/runnings/candgen_WebQ/20201202_entity_time_type_ordinal/data/'
     question2path = {}
     num = 0
@@ -77,23 +77,22 @@ def WebQ():
     # print(result)
     print('len(result):', len(result))
     sum_f1 = 0.0
-    f = open('./max_match_result.txt', 'w', encoding = 'utf-8')
+    # f = open('./max_match_result.txt', 'w', encoding = 'utf-8')
     result_list = sorted(result.items(), key = lambda x:x[0])
     for item in result_list:
         if(item[1] <= 0.1):
             num += 1
         sum_f1 += item[1]
-        f.write(item[0] + '\n')
-    f.flush()
+    #     f.write(item[0] + '\n')
+    # f.flush()
     print(sum_f1)
     print(sum_f1 / len(result))
     print('训练集中没有正确答案的问句个数：', num)
-    # import pdb; pdb.set_trace()
 
 
-def CompQ():
+def CompQ(init_dir_name = '../runnings/candgen_CompQ/20201130_entity_time_type_ordinal/data/'):
     result = {}
-    init_dir_name = '/data2/yhjia/bert_rank/Generate_QueryGraph/Luo/runnings/candgen_CompQ/20201130_entity_time_type_ordinal/data/'
+    # init_dir_name = '/data2/yhjia/bert_rank/Generate_QueryGraph/Luo/runnings/candgen_CompQ/20201130_entity_time_type_ordinal/data/'
     # init_dir_name = '/data4/cytan/KBQA-QueryGraphSelection/runnings/candgen_CompQ/20201130_entity_time_type_ordinal/data/'
     for root, dirs, files in os.walk(init_dir_name):
         # print(root, dirs, files)
@@ -128,15 +127,12 @@ def CompQ():
     # print(result)
     print('len(result):', len(result))
     sum_f1 = 0.0
-    # f = open('max_match_result_cytan.txt', 'w', encoding = 'utf-8')
     result_list = sorted(result.items(), key = lambda x:x[0])
     for item in result_list:
         sum_f1 += item[1]
         # if(item[1] == 0.0):
         #     print(item)
         # import pdb; pdb.set_trace()
-    #     f.write('\n'.join(item[0].split('\n')[0:2]) + '\n')
-    # f.flush()
     print(sum_f1)
     print(sum_f1 / len(result))
 
@@ -256,10 +252,23 @@ def WebQ_no_answer():
 
 
 if __name__ == "__main__":
+    WEBQ = 'WebQ'
+    COMPQ = 'CompQ'
+    dataset = 'WebQ'
+    init_dir_name = ''
+
+    dataset = 'CompQ'
+
+    if dataset == WEBQ:
+        WebQ(init_dir_name)
+    elif dataset == COMPQ:
+        CompQ(init_dir_name)
+    else:
+        print('unknown dataset')
     #**************获取WebQ数据集查询图生成模块的平均F1性能*******************
     # WebQ()
     #**************获取CompQ数据集查询图生成模块的平均F1性能*******************
-    CompQ()
+    # CompQ()
     #*********************************************************************
     # CompQ_no_answer()
     # WebQ_no_answer()
