@@ -46,8 +46,6 @@ bash step1_gen_query_graph_compq_luo.sh
 # 整个数据集上每个问句对应的平均候选个数为208(Generate_QueryGraph/Luo/build_listwise_data.py)
 ```
 
-中文数据集上的结果[todo 后续完善]
-
 ## 2️⃣构建stage1 排序的输入数据
 
 - WebQ
@@ -55,7 +53,6 @@ bash step1_gen_query_graph_compq_luo.sh
 ```bash
 cd Build_Data/WebQ
 python build_listwise_data_with_answer.py
-# 执行后会在runnings/train_data/webq文件夹下生成不同正负例的训练集文件，以及统一的验证和测试文件。这些文件会被三种排序优化方法共同使用。
 ```
 
 - CompQ
