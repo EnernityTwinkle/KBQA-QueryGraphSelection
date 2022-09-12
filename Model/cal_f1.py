@@ -428,4 +428,6 @@ if __name__ == "__main__":
     # fileName2 = BASE_DIR + '/runnings/train_data/webq/webq_rank1_f01_gradual_label_position_1_140_type_entity_time_ordinal_mainpath_test_all.txt'
     fileName2 = '/home/chenwenliang/jiayonghui/gitlab/rerankinglab/runnings/train_data/compq/compq_test_all.txt'
 
+    fileName1 = '/data4/cytan/KBQA-QueryGraphSelection/runnings/model/compq_stage1_4454_new_bert_compq_listwise_rank1_f01_gradual_merge_type_entity_time_ordianl_mainpath_neg_120_42_100/prediction_test'  # 预测的得分文件
+    fileName2 = '/data4/cytan/KBQA-QueryGraphSelection/runnings/train_data/compq_stage1/compq_noanswer_rank1_f01_gradual_label_position_listwise_1_140_type_entity_time_ordinal_mainpath_test_all.txt'  # 训练数据
     cal_f1_with_position_compq(fileName1, fileName2, 't', -2)

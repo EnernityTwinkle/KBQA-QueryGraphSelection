@@ -16,17 +16,17 @@ if __name__ == "__main__":
     f = open(BASE_DIR + '/data/compq_qid2question.pkl', 'rb')
     qid2question = pickle.load(f)
     qid2cands_train, qid2cands_dev, qid2cands_test = split_data_compq(qid2cands)
-    # for N in [5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 140]:
+    for N in [5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 140]:
         
     #     # file_name = BASE_DIR + '/output_data/webq/webq_prerank_rank1_f01_gradual_label_position_listwise_1_' + str(N) + '_type_entity_time_ordinal_mainpath_'
     #     # train_data = select_top_1_n_listwise_gradual(qid2question, qid2cands_train, pos_only1=False, data_type='T', N=N)
 
-    #     file_name = BASE_DIR + '/output_data/compq/compq_prerank_rank1_f01_gradual_label_position_listwise_top_' + str(N) + '_type_entity_time_ordinal_mainpath_'
-    #     train_data = select_top_n_listwise(qid2question, qid2cands_train, pos_only1=False, data_type='T', N=N)
-    #     write2file_label_position(file_name + 'is_train.txt', train_data)
+        file_name = BASE_DIR + '/runnings/train_data/compq/compq_prerank_rank1_f01_gradual_label_position_listwise_top_' + str(N) + '_type_entity_time_ordinal_mainpath_'
+        train_data = select_top_n_listwise(qid2question, qid2cands_train, pos_only1=False, data_type='T', N=N)
+        write2file_label_position(file_name + 'is_train.txt', train_data)
 
     # 验证集和测试集都是使用全集
-    file_name = BASE_DIR + '/runnings/train_data/compq/compq_'
+    file_name = BASE_DIR + '/runnings/train_data/compq/compq_'  # 文件的前半目录
     dev_data = select_top_1_n_listwise(qid2question, qid2cands_train, pos_only1=False, data_type='v')
     write2file_label_position(file_name + 'train_all.txt', dev_data)
     dev_data = select_top_1_n_listwise(qid2question, qid2cands_dev, pos_only1=False, data_type='v')

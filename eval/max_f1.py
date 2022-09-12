@@ -4,7 +4,10 @@ import csv
 import sys
 import yaml
 
-
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(BASE_DIR)
+print(BASE_DIR)
+# exit()
 # 读取每个问句对应的实体链接表信息
 def read_qid2entity(init_dir_name):
     '''
@@ -254,11 +257,12 @@ def WebQ_no_answer():
 if __name__ == "__main__":
     WEBQ = 'WebQ'
     COMPQ = 'CompQ'
-    dataset = 'WebQ'
-    init_dir_name = ''
+
+    # dataset = 'WebQ'
+    # init_dir_name = BASE_DIR + '/runnings/candgen_CompQ/20201130_entity_time_type_ordinal/data/'
 
     dataset = 'CompQ'
-
+    init_dir_name = BASE_DIR + '/runnings/candgen_WebQ/20201202_entity_time_type_ordinal/data/'
     if dataset == WEBQ:
         WebQ(init_dir_name)
     elif dataset == COMPQ:

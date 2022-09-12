@@ -52,13 +52,25 @@ if __name__ == "__main__":
     #     write2file(dirName + 'webq_T_bert_negOrder_1_n_top' + str(top_n) + '.txt', qid2data)
     #     # break
 
-    dirName = BASE_DIR + '/runnings/train_data/webq/'
-    for top_n in [10, 20, 30, 40]:
+    # # 之前没有注释的
+    # dirName = BASE_DIR + '/runnings/train_data/webq/'
+    # for top_n in [10, 20, 30, 40]:
+    #     print(top_n)
+    #     ratio = 6
+    #     # 对交叉验证得到的训练集进行topn选取
+    #     file_name = dirName + '5595_rerank_listwise_negOrder_pos10_baseline_1score_webq_neg_30_42_100_train_fromrerank.txt'
+    #     qid2data = readOrderedTrainData(file_name)
+    #     qid2data = selectTopBasedNegHighPosRatio(qid2data, top_n - 1, 10)
+    #     write2file(dirName + 'webq_rerank2_T_bert_negOrder_pos10_1_n_top' + str(top_n) + '.txt', qid2data)
+    #     # break
+
+    dirName = BASE_DIR + '/runnings/train_data/webq-yhjia/neg_n/'
+    for top_n in [20]:
         print(top_n)
         ratio = 6
         # 对交叉验证得到的训练集进行topn选取
-        file_name = dirName + '5595_rerank_listwise_negOrder_pos10_baseline_1score_webq_neg_30_42_100_train_fromrerank.txt'
+        file_name = dirName + '5530_new_bert_webq_listwise_gradual_merge_type_entity_time_ordianl_mainpath_neg_40_42_100_test_from5530.txt'
         qid2data = readOrderedTrainData(file_name)
         qid2data = selectTopBasedNegHighPosRatio(qid2data, top_n - 1, 10)
-        write2file(dirName + 'webq_rerank2_T_bert_negOrder_pos10_1_n_top' + str(top_n) + '.txt', qid2data)
+        write2file(dirName + 'from5530_webq_rerank_t_bert_negOrder_1_n_top' + str(top_n) + '.txt', qid2data)
         # break
