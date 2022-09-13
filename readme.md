@@ -72,10 +72,10 @@ python build_listwise_data.py
 
 ```bash
 cd Model/Listwise
-# CompQ
-python main_bert_listwise_comp.py
 # WebQ
 python main_bert_listwise_webq.py
+# CompQ
+python main_bert_listwise_comp.py
 # 需要修改对应参数
 ```
 
@@ -110,22 +110,53 @@ python select_1_n.py
 #### 基于stage1模型对所有候选打分
 
 ``` bash
-cd Model/prerank/webq
 # 基于stage1模型，对train, dev, test全部候选打分
+# webq
+cd Model/prerank/webq
 python predict_test_data_webq.py    根据训练好的排序模型计算test候选的得分
 python predict_dev_data_webq.py     根据训练好的排序模型计算dev候选的得分
 python predict_train_data_webq.py   根据训练好的排序模型计算train候选的得分
+# compq
+cd Model/prerank/compq
+python predict_test_data_compq.py    根据训练好的排序模型计算test候选的得分
+python predict_dev_data_compq.py     根据训练好的排序模型计算dev候选的得分
+python predict_train_data_compq.py   根据训练好的排序模型计算train候选的得分
 ```
 
-#### 根据排序得分获取有序的候选查询图[todo]
+#### 根据排序得分获取有序的候选查询图
 
-#### 根据有序的候选查询图构建重排序数据[todo]
+```bash
+# 需要修改参数
+# webq
+cd Build_Data/WebQ
+python get_sorted_cand_from_prerank_score.py
+# comq
+cd Build_Data/CompQ
+python get_sorted_cand_from_prerank.py
+```
+
+#### 根据有序的候选查询图构建重排序数据
+
+```bash
+# 需要修改参数
+# webq
+cd Build_Data/WebQ
+python select_1_n.py
+python select_topn_from_sorted.py
+# compq
+cd Build_Data/CompQ
+python select_1_n.py
+python select_topn_from_sorted.py
+```
 
 #### 进行重排序训练
 
 ```bash
+# 需要修改参数
+# webq
 cd Model/rerank/webq
 python main_listwise_compq.py
+# compq
 cd Model/rerank/compq
 python main_listwise_webq.py
 ```
