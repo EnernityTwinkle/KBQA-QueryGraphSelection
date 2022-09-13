@@ -78,14 +78,11 @@ bash train_ccks2021.sh
 * 我们提供已训练的模型
   * ckbqa/data/models/stage1/
 
-* 如果您想单独infer
-
-```bash
-```
-
 ## stage2模型训练
 
 ```bash
+cd src/rerank/model_train
+
 ```
 
 * 我们提供已训练的模型
