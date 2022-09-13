@@ -69,13 +69,24 @@ python build_test_data.py   # 转化test
 
 ```bash
 cd src/model_train
-python train_listwise_multi_types_1.py
+# 训练CCKS2019
+bash train_ccks2019.sh
+# 训练CCKS2021
+bash train_ccks2021.sh
 ```
 
-* 我们同样提供已训练的模型
+* 我们提供已训练的模型
   * ckbqa/data/models/stage1/
+
+* 如果您想单独infer
+
+```bash
+```
 
 ## stage2模型训练
 
 ```bash
 ```
+
+* 我们提供已训练的模型
+  * ckbqa/data/models/stage2/
