@@ -20,7 +20,7 @@
 
 - [ComplexQuestions](https://github.com/JunweiBao/MulCQA/tree/ComplexQuestions) 源自论文[Constraint-Based Question Answering with Knowledge Graph](https://aclanthology.org/C16-1236.pdf)
 
-- 我们已训练的模型和部分中间结果 [百度网盘-下载](https://pan.baidu.com/s/198gZPkUDPmoMEFJV0IKwoA?pwd=h35j)
+- 我们已训练的模型和部分中间结果 [百度网盘-上传中](https://pan.baidu.com/s/198gZPkUDPmoMEFJV0IKwoA?pwd=h35j)
 
 ## 🚀 快速复现实验结果
 
@@ -105,25 +105,27 @@ python selet_topn_from_sorted.py
 python select_1_n.py
 ```
 
-### 5️⃣ 重排序[todo]
+### 5️⃣ 重排序
 
 #### 基于stage1模型对所有候选打分
 
 ``` bash
-cd Model/prerank/pairwise/webq
-python predict_dev_data_webq.py     根据训练好的排序模型计算验证集候选的得分
-python predict_train_data_webq.py   根据训练好的排序模型计算训练集候选的得分
+cd Model/prerank/webq
+# 基于stage1模型，对train, dev, test全部候选打分
+python predict_test_data_webq.py    根据训练好的排序模型计算test候选的得分
+python predict_dev_data_webq.py     根据训练好的排序模型计算dev候选的得分
+python predict_train_data_webq.py   根据训练好的排序模型计算train候选的得分
 ```
 
 #### 根据排序得分获取有序的候选查询图[todo]
 
 #### 根据有序的候选查询图构建重排序数据[todo]
 
-#### 进行重排序训练[todo]
+#### 进行重排序训练
 
 ```bash
 cd Model/rerank/webq
-
+python main_listwise_compq.py
 cd Model/rerank/compq
-# 运行
+python main_listwise_webq.py
 ```
