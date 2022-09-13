@@ -2,24 +2,13 @@
 
 这里是针对中文领域的KBQA系统，知识库采用PKUBASE。
 
-
-## 数据格式
-
-* 训练集格式参考文件
-/dataset/ccks2021/ccks2021_task13_train.txt
-* 实体识别结果格式参考文件
-/data/entitylinking/1031_EL_train.json 
-
-将data/models里的文件放到对应位置
+相关数据和模型见网盘[待上传]
 
 torch版本为1.0.0
-
 
 ## 错误分析
 
 通过src/eda/multiType_error_analysis.py分析每种类型问句的f1值。
-
-# 结果复现
 
 ## 排序前置结果
 
@@ -80,9 +69,12 @@ bash train_ccks2021.sh
 
 ## stage2模型训练
 
+我们已构建好相关数据，若想自行构建请参考`ckbqa/src/rerank/readme.md`
+
 ```bash
 cd src/rerank/model_train
-
+# 训练CCKS2021
+bash train_ccks2021.sh
 ```
 
 * 我们提供已训练的模型
