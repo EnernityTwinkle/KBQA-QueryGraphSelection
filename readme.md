@@ -22,9 +22,11 @@
 
 ## 🚀 快速复现实验结果
 
+此处介绍如何复现英文数据集上的实验结果，关于中文部分请移步[ckbqa](https://github.com/cytan17726/KBQA-QueryGraphSelection/tree/master/ckbqa)
+
 ### 1️⃣ 查询图生成
 
-此步骤非必要, 我们提供各数据集的生成结果，供排序使用
+非必要, 我们提供各数据集的生成结果，供排序使用
 
 - 生成WebQ数据集对应的候选查询图
   - 已生成数据目录: runnings/candgen_WebQ/20201202_entity_time_type_ordinal/data
