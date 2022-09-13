@@ -28,8 +28,8 @@
 
 非必要, 我们提供各数据集的生成结果，供排序使用
 
-- 生成WebQ数据集对应的候选查询图
-  - 已生成数据目录: runnings/candgen_WebQ/20201202_entity_time_type_ordinal/data
+- WebQ: `RankingQueryGraphs/runnings/candgen_WebQ/20201202_entity_time_type_ordinal/data`
+- CompQ: `RankingQueryGraphs/runnings/candgen_CompQ/20201130_entity_time_type_ordinal/data`
 
 ```bash
 cd Generate_QueryGraph/Luo
@@ -75,6 +75,8 @@ nohup python main_bert_listwise_comp.py > 0908_gpu7_stage1_comp_neg40.log&
 # 还没验证
 python main_bert_listwise_webq.py
 ```
+
+- 我们提供已训练好的模型 `RankingQueryGraphs/runnings/model`
 
 ### 4️⃣ 构建stage2 排序的输入数据【todo】
 
