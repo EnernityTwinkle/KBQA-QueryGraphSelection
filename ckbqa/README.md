@@ -65,7 +65,7 @@ bash train_ccks2021.sh
 ```
 
 * 我们提供已训练的模型
-  * ckbqa/data/models/stage1/
+  * ckbqa/data/models/stage1/tqdm 结尾会有奇怪的内容github
 
 ## stage2模型训练
 
