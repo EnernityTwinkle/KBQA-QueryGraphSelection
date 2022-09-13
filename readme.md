@@ -79,7 +79,7 @@ python main_bert_listwise_comp.py
 # 需要修改对应参数
 ```
 
-### 4️⃣ 构建stage2 排序的输入数据【todo】
+### 4️⃣ 构建stage2 排序的输入数据
 
 - WebQ
 
@@ -113,14 +113,14 @@ python select_1_n.py
 # 基于stage1模型，对train, dev, test全部候选打分
 # webq
 cd Model/prerank/webq
-python predict_test_data_webq.py    根据训练好的排序模型计算test候选的得分
-python predict_dev_data_webq.py     根据训练好的排序模型计算dev候选的得分
-python predict_train_data_webq.py   根据训练好的排序模型计算train候选的得分
+python predict_test_data_webq.py
+python predict_dev_data_webq.py
+python predict_train_data_webq.py
 # compq
 cd Model/prerank/compq
-python predict_test_data_compq.py    根据训练好的排序模型计算test候选的得分
-python predict_dev_data_compq.py     根据训练好的排序模型计算dev候选的得分
-python predict_train_data_compq.py   根据训练好的排序模型计算train候选的得分
+python predict_test_data_compq.py
+python predict_dev_data_compq.py
+python predict_train_data_compq.py
 ```
 
 #### 根据排序得分获取有序的候选查询图
