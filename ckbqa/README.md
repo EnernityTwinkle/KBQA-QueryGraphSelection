@@ -72,10 +72,8 @@ cd src/model_train
 python train_listwise_multi_types_1.py
 ```
 
-我们同样提供已训练的模型
-
-* CCKS2019
-* CCKS2021
+* 我们同样提供已训练的模型
+  * ckbqa/data/models/stage1/
 
 ## stage2模型训练
 
