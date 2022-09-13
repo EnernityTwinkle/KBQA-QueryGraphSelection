@@ -20,6 +20,8 @@
 
 - [ComplexQuestions](https://github.com/JunweiBao/MulCQA/tree/ComplexQuestions) 源自论文[Constraint-Based Question Answering with Knowledge Graph](https://aclanthology.org/C16-1236.pdf)
 
+- 我们已训练的模型和部分中间结果 [百度网盘-下载](https://pan.baidu.com/s/198gZPkUDPmoMEFJV0IKwoA?pwd=h35j)
+
 ## 🚀 快速复现实验结果
 
 此处介绍如何复现英文数据集上的实验结果，关于中文部分请移步[ckbqa](https://github.com/cytan17726/KBQA-QueryGraphSelection/tree/master/ckbqa)
@@ -54,29 +56,28 @@ bash step1_gen_query_graph_compq_luo.sh
 
 ```bash
 cd Build_Data/WebQ
-python build_listwise_data_with_answer.py
+python build_listwise_data.py
 ```
 
 - CompQ
 
 ```bash
 cd Build_Data/CompQ/
-python build_prerank_data.py
+python build_listwise_data.py
 ```
 
-### 3️⃣ stage1 排序【重新训练中】
+### 3️⃣ stage1 排序
+
+- 我们提供已训练好的模型 `RankingQueryGraphs/runnings/model`
 
 ```bash
 cd Model/Listwise
-
 # CompQ
-# todo 或许 后续调整传参方式
-nohup python main_bert_listwise_comp.py > 0908_gpu7_stage1_comp_neg40.log&
-# 还没验证
+python main_bert_listwise_comp.py
+# WebQ
 python main_bert_listwise_webq.py
+# 需要修改对应参数
 ```
-
-- 我们提供已训练好的模型 `RankingQueryGraphs/runnings/model`
 
 ### 4️⃣ 构建stage2 排序的输入数据【todo】
 
