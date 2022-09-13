@@ -4,8 +4,6 @@
 
 相关数据和模型见网盘[待上传]
 
-torch版本为1.0.0
-
 ## 错误分析
 
 通过src/eda/multiType_error_analysis.py分析每种类型问句的f1值。
