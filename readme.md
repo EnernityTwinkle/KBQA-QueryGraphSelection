@@ -4,7 +4,7 @@
 
 更多细节可参考 __Yonghui Jia, Chuanyuan Tan, Yuehe Chen, Muhua Zhu, Pingfu Chao, Wenliang Chen. Two-stage Query Graph Selection for Knowledge Base Question Answering. NLPCC 2022.__
 
-中文数据集上的实验参考ckbqa/README.md 展开(后续进一步完善)
+中文数据集上的实验参考ckbqa/README.md 展开(后续会进一步完善)
 
 ## setups[todo]
 
