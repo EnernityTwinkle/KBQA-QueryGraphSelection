@@ -32,8 +32,6 @@
 ```bash
 cd Generate_QueryGraph/Luo
 bash step1_gen_query_graph_webq_luo.sh
-# 评价得到的候选查询图的平均召回率，即每个问句对应最高f1值的平均(Generate_QueryGraph/Luo/max_f1.py)：
-# 训练集和验证集（0.7852），测试集（0.7772）,整个数据集平均（0.7824）
 ```
 
 - 生成CompQ数据集对应的候选查询图
@@ -42,8 +40,6 @@ bash step1_gen_query_graph_webq_luo.sh
 ```bash
 cd Generate_QueryGraph/Luo
 bash step1_gen_query_graph_compq_luo.sh
-# 评价得到的候选查询图的平均召回率，即每个问句对应最高f1值的平均(Generate_QueryGraph/Luo/max_f1.py)：
-# 训练集和验证集（0.6333），测试集（0.6304）,整个数据集平均（0.6322）
 ```
 
 ### 2️⃣ 构建stage1 排序的输入数据

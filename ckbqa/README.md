@@ -2,7 +2,7 @@
 
 这里是针对中文领域的KBQA系统，知识库采用PKUBASE。
 
-相关数据和模型见[网盘](https://pan.baidu.com/s/198gZPkUDPmoMEFJV0IKwoA?pwd=h35j)
+相关数据和模型已上传至 [百度网盘](https://pan.baidu.com/s/198gZPkUDPmoMEFJV0IKwoA?pwd=h35j)
 
 ## 排序前置结果
 
@@ -22,7 +22,7 @@ python main_based_filter_rel_for_test.py    #测试集
 cd /src/build_query_graph
 bash eval_max_f1.sh
 
-# 仅对CCKS2021-test(比赛放未公开数据, 本团队标注)
+# 仅对CCKS2021-test(比赛方未公开数据, 本团队标注)
 bash eval_max_f1_test.sh
 ```
 
