@@ -2,7 +2,7 @@
 
 这里是针对中文领域的KBQA系统，知识库采用PKUBASE。
 
-相关数据和模型见网盘[待上传]
+相关数据和模型见[网盘](https://pan.baidu.com/s/198gZPkUDPmoMEFJV0IKwoA?pwd=h35j)
 
 ## 错误分析
 

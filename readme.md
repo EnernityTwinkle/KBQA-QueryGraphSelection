@@ -4,7 +4,7 @@
 
 更多细节可参考 __Yonghui Jia, Chuanyuan Tan, Yuehe Chen, Muhua Zhu, Pingfu Chao, Wenliang Chen. Two-stage Query Graph Selection for Knowledge Base Question Answering. NLPCC 2022.__
 
-中文数据集上的实验参考ckbqa/README.md 展开(后续会进一步完善)
+中文数据集上的实验参考ckbqa/README.md 展开(按issues要求, 后续会进一步完善)
 
 ## setups[todo]
 
@@ -20,7 +20,7 @@
 
 - [ComplexQuestions](https://github.com/JunweiBao/MulCQA/tree/ComplexQuestions) 源自论文[Constraint-Based Question Answering with Knowledge Graph](https://aclanthology.org/C16-1236.pdf)
 
-- 我们已训练的模型和部分中间结果 [百度网盘-上传中](https://pan.baidu.com/s/198gZPkUDPmoMEFJV0IKwoA?pwd=h35j)
+- 我们已训练的模型和部分中间结果,包含中文和英文数据集内容 [百度网盘](https://pan.baidu.com/s/198gZPkUDPmoMEFJV0IKwoA?pwd=h35j)
 
 ## 🚀 快速复现实验结果
 
