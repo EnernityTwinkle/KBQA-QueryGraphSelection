@@ -4,10 +4,6 @@
 
 相关数据和模型见[网盘](https://pan.baidu.com/s/198gZPkUDPmoMEFJV0IKwoA?pwd=h35j)
 
-## 错误分析
-
-通过src/eda/multiType_error_analysis.py分析每种类型问句的f1值。
-
 ## 排序前置结果
 
 ### 查询图生成
