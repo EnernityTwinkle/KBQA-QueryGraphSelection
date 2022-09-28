@@ -6,10 +6,6 @@
 
 中文数据集上的实验参考ckbqa/README.md 展开(按issues要求, 后续会进一步完善)
 
-## setups[todo]
-
-代码在下述环境中测试
-
 ## 💾 数据获取
 
 - [CCKS2019-KBQA](https://www.biendata.xyz/competition/ccks_2019_6/) 源自CCKS2019评测任务: 中文知识图谱问答
