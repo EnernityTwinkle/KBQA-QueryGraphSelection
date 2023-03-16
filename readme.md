@@ -16,7 +16,7 @@
 
 - [ComplexQuestions](https://github.com/JunweiBao/MulCQA/tree/ComplexQuestions) 源自论文[Constraint-Based Question Answering with Knowledge Graph](https://aclanthology.org/C16-1236.pdf)
 
-- 我们已训练的模型和部分中间结果,包含中文和英文数据集内容 [百度网盘](https://pan.baidu.com/s/198gZPkUDPmoMEFJV0IKwoA?pwd=h35j)
+- 我们已训练的模型和部分中间结果,包含中文和英文数据集内容 [google drive](https://drive.google.com/drive/folders/18G4h41Pvh7rdZ2wBAKxVw079Fnybv1-T?usp=sharing)
 
 ## 🚀 快速复现实验结果
 
